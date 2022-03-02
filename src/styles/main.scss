@@ -39,18 +39,18 @@ header {
             // background-color: goldenrod;
         }
     }
-    .jumbotron {
-        text-align: center;
-        padding: 5rem;
-        background-image: url("/images/heros/hero-image_2.jpg");
-        height: 500px;
-        display: grid;
-        align-items: center;
-    }
 }
 
 main {
-    background-color: red;
+    .jumbotron {
+        text-align: center;
+        background-image: url("/images/heros/hero-image_2.jpg");
+        color: wheat;
+        .jumbotron-text {
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+    }
 }
 
 footer {
@@ -58,6 +58,12 @@ footer {
     text-align: center;
     background-color: black;
     color: white;
+}
+
+@media screen and(min-width:1200px) {
+    .jumbotron {
+        min-width: 1000px;
+    }
 }
 
 @media screen and(max-width: 1200px) {
