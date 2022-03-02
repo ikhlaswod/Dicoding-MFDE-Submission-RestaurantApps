@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const loader = require('sass-loader');
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -28,6 +29,12 @@ module.exports = {
                     "css-loader",
                     // Compiles Sass to CSS
                     "sass-loader",
+                ],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                use: [
+                    'file-loader',
                 ],
             },
         ],

@@ -8,40 +8,49 @@ header {
     nav {
         display: grid;
         grid-template-columns: 3fr 2fr;
-        background-color: aqua;
-        padding: 1em;
+        padding: 1rem 2rem;
+        border: 1px solid black;
         .nav-list {
-            background-color: brown;
             ul {
-                background-color: red;
                 list-style-type: none;
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 column-gap: 16px;
                 a {
-                    background-color: antiquewhite;
                     text-decoration: none;
                     padding: 0.5rem;
                     display: grid;
                     grid-template-columns: repeat(3, 1 fr);
                     text-align: center;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3)
                 }
                 a:hover {
-                    background-color: green;
+                    background-color: grey;
                     color: white;
                 }
             }
         }
         .nav-logo {
-            background-color: burlywood;
+            margin-left: 2rem;
         }
     }
     .jumbotron {
-        z-index: 1000;
         background-color: royalblue;
+        text-align: center;
+        padding: 5rem;
+        // background-image: url("../public/images/heros/hero-image_2.jpg");
     }
 }
 
 main {
     background-color: red;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: black;
+    color: white;
 }
