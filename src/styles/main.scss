@@ -3,14 +3,31 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+a {
+    min-width: 44px;
+    min-height: 44px;
+}
+.skip-link {
+    position: absolute;
+   top: -60px;
+   left: 0;
+   background-color: #bf1722;
+   color: white;
+   padding: 8px;
+   z-index: 100;
+}
+.skip-link:focus {
+    top: 0;
+ }
 header {
+    
     nav {
         display: flex;
         padding: 1rem 2rem;
         border: 1px solid black;
         .nav-list {
             flex-basis: 40%;
+            
             ul {
                 list-style-type: none;
                 display: grid;
@@ -24,8 +41,6 @@ header {
                     text-align: center;
                     border: 1px solid black;
                     border-radius: 5px;
-                    min-width: 44px;
-                    min-height: 44px;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3)
                 }
                 a:hover {
@@ -157,6 +172,7 @@ footer {
                     font-size: 32px;
                     margin: 16px;
                     color: black;
+                    
                 }
             }
             .nav-list.open {
@@ -164,6 +180,8 @@ footer {
                     transform: translate(0, 0);
                 }
             }
+        }
+        .hamburger_menu{display: grid;
         }
     }
 }
