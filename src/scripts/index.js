@@ -1,6 +1,5 @@
 import 'regenerator-runtime';
 import '../styles/css/main.css';
-import '../styles/main.scss';
 
 import data from '../data/DATA.json';
 
