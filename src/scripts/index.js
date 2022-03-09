@@ -3,27 +3,26 @@ import '../styles/css/main.css';
 
 import data from '../data/DATA.json';
 
-const hamburgerButtonElement = document.querySelector("#menu");
-const navListElement = document.querySelector(".nav-list");
-const mainElement = document.querySelector("main");
+const hamburgerButtonElement = document.querySelector('#menu');
+const navListElement = document.querySelector('.nav-list');
+const mainElement = document.querySelector('main');
 
+const restaurantListElement = document.querySelector('#restaurantList');
 
-const restaurantListElement = document.querySelector("#restaurantList")
+hamburgerButtonElement.addEventListener('click', (event) => {
+  navListElement.classList.toggle('open');
+  event.stopPropagation();
+});
 
+mainElement.addEventListener('click', (event) => {
+  navListElement.classList.remove('open');
+  event.stopPropagation();
+});
 
-
-hamburgerButtonElement.addEventListener("click", event => {
-    navListElement.classList.toggle("open");
-    event.stopPropagation();
-})
-mainElement.addEventListener("click", event => {
-    navListElement.classList.remove("open");
-    event.stopPropagation();
-})
-document.addEventListener("DOMContentLoaded", () => {
-    restaurantListElement.innerHTML = "";
-    data.restaurants.forEach(restaurant => {
-        restaurantListElement.innerHTML += `
+document.addEventListener('DOMContentLoaded', () => {
+  restaurantListElement.innerHTML = '';
+  data.restaurants.forEach((restaurant) => {
+    restaurantListElement.innerHTML += `
         
         <div class="list-item">
             <div class="list-head">
@@ -39,7 +38,5 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
         `;
-    })
-
-
-})
+  });
+});
