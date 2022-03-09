@@ -1,7 +1,7 @@
 import CONFIG from '../globals/config';
 
-const cacheHelper = {
-  async cacheAppShell(requests) {
+const CacheHelper = {
+  async cachingAppShell(requests) {
     const cache = await this._openCache();
     cache.addAll(requests);
   },
@@ -44,4 +44,4 @@ const cacheHelper = {
   },
 };
 
-export default cacheHelper;
+export default CacheHelper;
