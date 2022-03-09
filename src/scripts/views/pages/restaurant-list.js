@@ -1,3 +1,5 @@
+import ApiRestaurantSource from '../../data/api-restaurant-source';
+
 const RestaurantList = {
   async render() {
     return `
@@ -8,7 +10,8 @@ const RestaurantList = {
   },
 
   async afterRender() {
-    //
+    const restaurants = await ApiRestaurantSource.restaurantList();
+    console.log(restaurants);
   },
 
 };
