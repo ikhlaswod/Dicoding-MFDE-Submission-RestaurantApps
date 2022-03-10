@@ -19,7 +19,7 @@ const createListRestaurantTemplate = (restaurant) => `
 const createDetailRestaurantTemplate = (restaurant) => `
 <div class="detail-item">
     <div class="detail-poster">
-        <img src="../images/heros/hero-image_2.jpg" alt="">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="">
         <div class="detail-info">
             <h2>Information</h2>
             <hr style="height:2px;border-width:0;color:black;background-color:black">
