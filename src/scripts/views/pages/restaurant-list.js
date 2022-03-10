@@ -3,7 +3,18 @@ import { createListRestaurantTemplate } from '../template/template-creator';
 
 const RestaurantList = {
   async render() {
-    return '';
+    return `
+    <div class="jumbotron">
+    </div>
+    <section class="content">
+      <div class="restaurant">
+          <h1>Explore Restaurant</h1>
+          <div id="restaurantList">
+    
+          </div>
+      </div>
+    </section>
+      `;
   },
 
   async afterRender() {
