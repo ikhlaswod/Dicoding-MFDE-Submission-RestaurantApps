@@ -61,21 +61,25 @@ const Detail = {
       },
     });
 
-    const ids = restaurant.restaurant.id;
-    const nameReview = 'anonymous';
-    const reviews = document.querySelector('#textReview').value;
-
     const reviewForm = document.querySelector('#reviewForm');
 
     reviewForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const reviewItem = {
-        id: ids,
-        name: nameReview,
-        review: reviews,
-      };
-      await ApiRestaurantSource.postReview(reviewItem);
-      // console.log(sendReview);
+
+      const reviewTextElement = document.querySelector('#reviewText').value;
+      const reviewNameElement = document.querySelector('#reviewName').value;
+      const idRestaurant = restaurant.restaurant.id;
+
+      if (reviewTextElement === '' || reviewNameElement === '') {
+        alert('Review can not be null!');
+      } else {
+        const reviewObject = {
+          id: idRestaurant,
+          name: reviewNameElement,
+          review: reviewTextElement,
+        };
+        // await ApiRestaurantSource.postReview(reviewObject);
+      }
     });
   },
 

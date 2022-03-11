@@ -69,7 +69,8 @@ const createDetailRestaurantTemplate = (restaurant) => `
             </div>
             <div class="form-review card">
                 <form id="reviewForm">
-                  <textarea name="komentar" id="textReview" class="txtarea-style">Silahkan isi komentar anda</textarea>
+                  <input type="text" id="reviewName" class="input-review" placeholder="Anonymous">
+                  <textarea id="reviewText" class="txtarea-style" placeholder="Your review..."></textarea>
                   <button type="submit" class="btn-submit" id="submit">Submit</button>
                 </form>
             </div>

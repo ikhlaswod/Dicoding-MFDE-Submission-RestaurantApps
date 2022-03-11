@@ -5,7 +5,6 @@ const CONFIG = {
   DATABASE_NAME: 'alteon-restaurant-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants',
-  API_KEY: '12345',
 
 };
 export default CONFIG;
