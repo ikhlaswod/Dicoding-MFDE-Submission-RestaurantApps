@@ -44,7 +44,6 @@ const Detail = {
       categoryContainer.innerHTML += createCategoryTemplate(category);
     });
 
-    // const { customerReviews } = restaurant.restaurant;
     const reviewContainer = document.querySelector('.list-review');
     customerReviews.forEach((review) => {
       reviewContainer.innerHTML += createListReviewTemplate(review);
@@ -61,7 +60,25 @@ const Detail = {
         rating: restaurant.restaurant.rating,
       },
     });
+
+    const ids = restaurant.restaurant.id;
+    const nameReview = 'anonymous';
+    const reviews = document.querySelector('#textReview').value;
+
+    const reviewForm = document.querySelector('#reviewForm');
+
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const reviewItem = {
+        id: ids,
+        name: nameReview,
+        review: reviews,
+      };
+      await ApiRestaurantSource.postReview(reviewItem);
+      // console.log(sendReview);
+    });
   },
+
 };
 
 export default Detail;

@@ -68,8 +68,10 @@ const createDetailRestaurantTemplate = (restaurant) => `
                 
             </div>
             <div class="form-review card">
-                <textarea name="komentar" class="txtarea-style">Silahkan isi komentar anda</textarea>
-                <button type="submit" class="btn-submit">Submit</button>
+                <form id="reviewForm">
+                  <textarea name="komentar" id="textReview" class="txtarea-style">Silahkan isi komentar anda</textarea>
+                  <button type="submit" class="btn-submit" id="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
