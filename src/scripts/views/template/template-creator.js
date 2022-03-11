@@ -18,28 +18,54 @@ const createListRestaurantTemplate = (restaurant) => `
 
 const createDetailRestaurantTemplate = (restaurant) => `
 <div class="detail-item">
-    <div class="detail-poster">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="">
-        <div class="detail-info">
-            <h2>Information</h2>
-            <hr style="height:2px;border-width:0;color:black;background-color:black">
-            <h4>${restaurant.name} Oke</h4>
-            <p>${restaurant.description}</p>
-            <h4>Category</h4>
-            
+  <div class="detail-poster">
+    <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="">
+  </div>
+  <div class="detail-info">
+    <div class="restaurant-information">
+      <h1>Information</h1>
+      <hr style="height:2px;border-width:0;color:black;background-color:black">
+      <div class="card">
+        <h2>${restaurant.name}</h2>
+        <hr>
+        <p>${restaurant.description}</p>
+        </div>
+        <div class="info-category card">
+            <h3>Category</h3>
+            <hr>
             <p>Italia, Modern</p>
-            <h4>Menu</h4>
-            <h5>Food</h5>
-            <p>Pizza</p>
-            <p>Burger</p>
-            <h5>Drink</h5>
-            <p>Sirup</p>
-            <p>Marjan</p>
-            <h4>Rating</h4>
+        </div>
+        <div class="info-menu card">
+            <h3>Menu</h3>
+            <hr>
+            <div class="menu-item">
+              
+            </div>
+        </div>
+        <div class="card">
+            <h3>Rating</h3>
+            <hr>
             <p>${restaurant.rating}</p>
         </div>
+      </div>
+      <div class="restaurant-review">
+          <h1>Reviews</h1>
+          <hr style="height:2px;border-width:0;color:black;background-color:black">
+          <div class="list-review">
+              <div class="review-item card">
+                  <h3>Irwan Gumilar</h3>
+                  <hr>
+                  <p>- Wih keren banget!!</p>
+              </div>
+          </div>
+          <div class="form-review card">
+              <textarea name="komentar" class="txtarea-style">Silahkan isi komentar anda</textarea>
+              <button type="submit" class="btn-submit">Submit</button>
+          </div>
+      </div>
     </div>
 </div>
+
 `;
 
 const createLikeButtonTemplate = () => `
@@ -54,10 +80,24 @@ const createDislikeButtonTemplate = () => `
   </button>
 `;
 
+const createMenuTemplate = (menus) => `
+  <div class="menu-food"> 
+    <h4>Foods</h4>
+    <hr class="hr-menu">
+    <p>${menus.foods}</p>
+    </div>
+    <div class="menu-drink">
+    <h4>Drinks</h4>
+    <hr class="hr-menu">
+    <p>${menus.drinks}</p>
+  </div>
+`;
+
 export {
   createListRestaurantTemplate,
   createDetailRestaurantTemplate,
   createLikeButtonTemplate,
   createDislikeButtonTemplate,
+  createMenuTemplate,
 
 };
