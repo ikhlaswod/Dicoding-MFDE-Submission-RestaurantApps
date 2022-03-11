@@ -6,6 +6,8 @@
 a {
     min-width: 44px;
     min-height: 44px;
+    // text-decoration: none;
+    color: black;
 }
 .skip-link {
     position: absolute;
@@ -143,6 +145,11 @@ main {
                     text-align: center;
                 }
                 
+            }
+            .info-category {
+                .categories-item{
+                    text-align: center;
+                }
             }
             
         }

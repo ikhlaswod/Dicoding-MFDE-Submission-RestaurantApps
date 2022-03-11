@@ -78,7 +78,8 @@ const Detail = {
           name: reviewNameElement,
           review: reviewTextElement,
         };
-        // await ApiRestaurantSource.postReview(reviewObject);
+        await ApiRestaurantSource.postReview(reviewObject);
+        location.reload();
       }
     });
   },
