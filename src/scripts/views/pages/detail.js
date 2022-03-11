@@ -1,7 +1,13 @@
 import ApiRestaurantSource from '../../data/api-restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-import { createDetailRestaurantTemplate } from '../template/template-creator';
+import {
+  createDetailRestaurantTemplate,
+  createMenuFoodTemplate,
+  createMenuDrinkTemplate,
+  createCategoryTemplate,
+  createListReviewTemplate,
+} from '../template/template-creator';
 
 const Detail = {
   async render() {
@@ -21,6 +27,28 @@ const Detail = {
     const restaurantContainer = document.querySelector('.restaurant');
     restaurantContainer.innerHTML = createDetailRestaurantTemplate(restaurant.restaurant);
 
+    const { foods, drinks } = restaurant.restaurant.menus;
+    const foodContainer = document.querySelector('.foods-item');
+    foods.forEach((item) => {
+      foodContainer.innerHTML += createMenuFoodTemplate(item);
+    });
+
+    const drinkContainer = document.querySelector('.drinks-item');
+    drinks.forEach((item) => {
+      drinkContainer.innerHTML += createMenuDrinkTemplate(item);
+    });
+
+    const { categories, customerReviews } = restaurant.restaurant;
+    const categoryContainer = document.querySelector('.categories-item');
+    categories.forEach((category) => {
+      categoryContainer.innerHTML += createCategoryTemplate(category);
+    });
+
+    const reviewContainer = document.querySelector('.list-review');
+    customerReviews.forEach((review) => {
+      reviewContainer.innerHTML += createListReviewTemplate(review);
+    });
+
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -32,7 +60,30 @@ const Detail = {
         rating: restaurant.restaurant.rating,
       },
     });
+
+    const reviewForm = document.querySelector('#reviewForm');
+
+    reviewForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const reviewTextElement = document.querySelector('#reviewText').value;
+      const reviewNameElement = document.querySelector('#reviewName').value;
+      const idRestaurant = restaurant.restaurant.id;
+
+      if (reviewTextElement === '' || reviewNameElement === '') {
+        alert('Review can not be null!');
+      } else {
+        const reviewObject = {
+          id: idRestaurant,
+          name: reviewNameElement,
+          review: reviewTextElement,
+        };
+        await ApiRestaurantSource.postReview(reviewObject);
+        location.reload();
+      }
+    });
   },
+
 };
 
 export default Detail;

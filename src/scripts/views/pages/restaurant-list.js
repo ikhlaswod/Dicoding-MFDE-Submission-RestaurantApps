@@ -8,7 +8,7 @@ const RestaurantList = {
     </div>
     <section class="content">
       <div class="restaurant">
-          <h1>Explore Restaurant</h1>
+          <h1 class="title">Explore Restaurant</h1>
           <div id="restaurantList">
     
           </div>
