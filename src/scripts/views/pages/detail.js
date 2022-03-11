@@ -6,6 +6,7 @@ import {
   createMenuFoodTemplate,
   createMenuDrinkTemplate,
   createCategoryTemplate,
+  createListReviewTemplate,
 } from '../template/template-creator';
 
 const Detail = {
@@ -25,21 +26,28 @@ const Detail = {
     const restaurant = await ApiRestaurantSource.detailRestaurant(url.id);
     const restaurantContainer = document.querySelector('.restaurant');
     restaurantContainer.innerHTML = createDetailRestaurantTemplate(restaurant.restaurant);
-    const foodContainer = document.querySelector('.foods-item');
-    const drinkContainer = document.querySelector('.drinks-item');
-    const categoryContainer = document.querySelector('.categories-item');
 
     const { foods, drinks } = restaurant.restaurant.menus;
-    const { categories } = restaurant.restaurant;
+    const foodContainer = document.querySelector('.foods-item');
     foods.forEach((item) => {
       foodContainer.innerHTML += createMenuFoodTemplate(item);
     });
 
+    const drinkContainer = document.querySelector('.drinks-item');
     drinks.forEach((item) => {
       drinkContainer.innerHTML += createMenuDrinkTemplate(item);
     });
+
+    const { categories, customerReviews } = restaurant.restaurant;
+    const categoryContainer = document.querySelector('.categories-item');
     categories.forEach((category) => {
       categoryContainer.innerHTML += createCategoryTemplate(category);
+    });
+
+    // const { customerReviews } = restaurant.restaurant;
+    const reviewContainer = document.querySelector('.list-review');
+    customerReviews.forEach((review) => {
+      reviewContainer.innerHTML += createListReviewTemplate(review);
     });
 
     LikeButtonInitiator.init({

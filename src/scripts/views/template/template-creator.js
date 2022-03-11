@@ -65,11 +65,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <h1>Reviews</h1>
             <hr style="height:2px;border-width:0;color:black;background-color:black">
             <div class="list-review">
-                <div class="review-item card">
-                    <h3>Irwan Gumilar</h3>
-                    <hr>
-                    <p>- Wih keren banget!!</p>
-                </div>
+                
             </div>
             <div class="form-review card">
                 <textarea name="komentar" class="txtarea-style">Silahkan isi komentar anda</textarea>
@@ -105,6 +101,14 @@ const createCategoryTemplate = (categories) => `
 ${categories.name} |
 `;
 
+const createListReviewTemplate = (review) => `
+<div class="review-item card">
+  <h3>${review.name}</h3>
+  <hr>
+  <p>${review.review}</p>
+  <p>${review.date}</p>
+</div>
+`;
 export {
   createListRestaurantTemplate,
   createDetailRestaurantTemplate,
@@ -113,5 +117,6 @@ export {
   createMenuFoodTemplate,
   createMenuDrinkTemplate,
   createCategoryTemplate,
+  createListReviewTemplate,
 
 };
