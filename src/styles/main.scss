@@ -38,7 +38,7 @@ header {
                 a {
                     text-decoration: none;
                     padding: 0.5rem;
-                    display: grid;
+                    display: flex;
                     grid-template-columns: repeat(3, 1 fr);
                     text-align: center;
                     border: 1px solid black;
@@ -98,7 +98,10 @@ main {
                     }
                 }
                 .list-text {
-                    padding: 16px;
+                    a {
+                            min-height: 44px;
+                        display: grid;
+                    }
                 }
             }
         }
@@ -186,6 +189,7 @@ main {
       height: 2rem;
       align-content: center;
       border: 2px solid black;
+      min-height: 44px;
       border-radius: 4px;
       font-weight: bold;
       
@@ -198,6 +202,12 @@ main {
 
   .hr-menu {
       margin: 0 2rem;
+  }
+
+  .hamburger_menu {
+      min-width: 44px;
+      min-height: 44px;
+      font-size: 2rem;
   }
 footer {
     padding: 1rem;
@@ -263,10 +273,7 @@ footer {
 
 @media screen and(min-width: 650px) {
     .hamburger_menu {
-        // background-color: red;
         display: none;
-        min-width: 44px;
-        min-height: 44px;
     }
 }
 
@@ -290,13 +297,7 @@ footer {
                     row-gap: 1rem;
                     padding: 2rem;
                 }
-                .hamburger_menu {
-                    text-decoration: none;
-                    font-size: 32px;
-                    margin: 16px;
-                    color: black;
-                    
-                }
+                
             }
             .nav-list.open {
                 ul {
@@ -304,7 +305,6 @@ footer {
                 }
             }
         }
-        .hamburger_menu{display: grid;
-        }
+        
     }
 }
