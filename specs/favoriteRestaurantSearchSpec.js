@@ -141,4 +141,31 @@ describe('Searching restaurants', () => {
         .toHaveBeenCalled();
     });
   });
+
+  describe('When no favorite restaurant could be found', () => {
+    it('should show the empty message', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurants__not__found').length)
+            .toEqual(1);
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants.withArgs('restaurant a').and.returnValues([]);
+
+      searchRestaurants('restaurant a');
+    });
+    it('should not show any movie', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurant').length)
+            .toEqual(0);
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants.withArgs('restaurant a').and.returnValues([]);
+
+      searchRestaurants('restaurant a');
+    });
+  });
 });
