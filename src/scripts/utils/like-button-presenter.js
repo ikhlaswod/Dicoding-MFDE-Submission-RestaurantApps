@@ -3,7 +3,7 @@ import CONFIG from '../globals/config';
 import { createLikeButtonTemplate, createDislikeButtonTemplate } from '../views/template/template-creator';
 import NotificationHelper from './notification-helper';
 
-const LikeButtonInitiator = {
+const LikeButtonPresenter = {
 
   async init({ likeButtonContainer, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
@@ -63,4 +63,4 @@ const LikeButtonInitiator = {
 
 };
 
-export default LikeButtonInitiator;
+export default LikeButtonPresenter;
