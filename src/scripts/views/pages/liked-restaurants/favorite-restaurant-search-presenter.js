@@ -12,9 +12,15 @@ class FavoriteRestaurantSearchPresenter {
   }
 
   async _searchRestaurants(latesQuery) {
-    this._latesQuery = latesQuery;
+    this._latesQuery = latesQuery.trim();
 
-    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latesQuery);
+    let foundRestaurants;
+    if (this.latesQuery.length > 0) {
+      foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latesQuery);
+    } else {
+      foundRestaurants = await this._favoriteRestaurants.getAllRestaurants();
+    }
+
     this._showFoundRestaurants(foundRestaurants);
   }
 
