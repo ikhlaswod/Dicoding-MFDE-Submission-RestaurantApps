@@ -74,10 +74,47 @@ describe('Searching restaurants', () => {
     expect(document.querySelectorAll('.restaurant__name').item(1).textContent)
       .toEqual('Alteon 2');
   });
-  it('should show - for found movie without name', () => {
+
+  it('should show - for found restaurant without name', () => {
     presenter._showFoundRestaurants([{ id: 1 }]);
 
     expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
       .toEqual('-');
+  });
+
+  it('should show the found restaurants by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+        expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+        done();
+      });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('restaurant abc').and.returnValues([
+      { id: 111, name: 'restaurant a' },
+      { id: 222, name: 'restaurant b' },
+      { id: 333, name: 'restaurant c' },
+    ]);
+
+    searchRestaurants('restaurant abc');
+  });
+
+  it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+        const restaurantName = document.querySelectorAll('.restaurant__name');
+        expect(restaurantName.item(0).textContent).toEqual('restaurant a');
+        expect(restaurantName.item(1).textContent).toEqual('restaurant b');
+        expect(restaurantName.item(2).textContent).toEqual('restaurant c');
+
+        done();
+      });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('restaurant abc').and.returnValues([
+      { id: 111, name: 'restaurant a' },
+      { id: 222, name: 'restaurant b' },
+      { id: 333, name: 'restaurant c' },
+    ]);
+
+    searchRestaurants('restaurant abc');
   });
 });

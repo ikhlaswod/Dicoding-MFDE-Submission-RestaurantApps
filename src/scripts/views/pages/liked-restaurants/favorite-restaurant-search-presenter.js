@@ -11,9 +11,11 @@ class FavoriteRestaurantSearchPresenter {
     });
   }
 
-  _searchRestaurants(latesQuery) {
+  async _searchRestaurants(latesQuery) {
     this._latesQuery = latesQuery;
-    this._favoriteRestaurants.searchRestaurants(this._latesQuery);
+
+    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latesQuery);
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
@@ -23,6 +25,9 @@ class FavoriteRestaurantSearchPresenter {
     );
     document.querySelector('.restaurants')
       .innerHTML = html;
+
+    document.getElementById('restaurant-search-container')
+      .dispatchEvent(new Event('restaurants:searched:updated'));
   }
 
   get latesQuery() {
