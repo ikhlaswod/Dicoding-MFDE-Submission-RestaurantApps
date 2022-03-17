@@ -1,4 +1,5 @@
 import ApiRestaurantSource from '../../data/api-restaurant-source';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import {
@@ -51,6 +52,7 @@ const Detail = {
 
     LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.restaurant.id,
         name: restaurant.restaurant.name,
