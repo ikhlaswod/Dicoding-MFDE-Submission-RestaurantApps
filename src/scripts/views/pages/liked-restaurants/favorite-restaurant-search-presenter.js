@@ -7,9 +7,22 @@ class FavoriteRestaurantSearchPresenter {
   _listenToSearchRequestByUser() {
     this._queryElement = document.getElementById('query');
     this._queryElement.addEventListener('change', (event) => {
-      this._latesQuery = event.target.value;
-      this._favoriteRestaurants.searchRestaurants(this._latesQuery);
+      this._searchRestaurants(event.target.value);
     });
+  }
+
+  _searchRestaurants(latesQuery) {
+    this._latesQuery = latesQuery;
+    this._favoriteRestaurants.searchRestaurants(this._latesQuery);
+  }
+
+  _showFoundRestaurants(restaurants) {
+    const html = restaurants.reduce(
+      (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__name">${restaurant.name || '-'}</span></li>`),
+      '',
+    );
+    document.querySelector('.restaurants')
+      .innerHTML = html;
   }
 
   get latesQuery() {
