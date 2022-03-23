@@ -47,39 +47,6 @@ describe('Searching restaurants', () => {
         .toHaveBeenCalledWith('restaurant a');
     });
 
-    it('should show the found restaurants', () => {
-      presenter._showFoundRestaurants([
-        { id: 1 },
-      ]);
-      expect(document.querySelectorAll('.restaurant').length)
-        .toEqual(1);
-
-      presenter._showFoundRestaurants([
-        { id: 1, name: 'Alteon Restaurant 1' },
-        { id: 1, name: 'Alteon Restaurant 2' },
-      ]);
-      expect(document.querySelectorAll('.restaurant').length)
-        .toEqual(2);
-    });
-
-    it('should show the name of the found restaurants', () => {
-      presenter._showFoundRestaurants([
-        { id: 1, name: 'Alteon 1' },
-        { id: 1, name: 'Alteon 2' },
-      ]);
-      expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
-        .toEqual('Alteon 1');
-      expect(document.querySelectorAll('.restaurant__name').item(1).textContent)
-        .toEqual('Alteon 2');
-    });
-
-    it('should show - for found restaurant without name', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-
-      expect(document.querySelectorAll('.restaurant__name').item(0).textContent)
-        .toEqual('-');
-    });
-
     it('should show the found restaurants by Favorite Restaurants', (done) => {
       document.getElementById('restaurant-search-container')
         .addEventListener('restaurants:searched:updated', () => {
@@ -114,6 +81,21 @@ describe('Searching restaurants', () => {
       ]);
 
       searchRestaurants('restaurant abc');
+    });
+
+    it('should show - when the movie returned does not contain a title', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          const restaurantNames = document.querySelectorAll('.restaurant__name');
+          expect(restaurantNames.item(0).textContent).toEqual('-');
+
+          done();
+        });
+      favoriteRestaurants.searchRestaurants.withArgs('restaurant a').and.returnValues([
+        { id: 444 },
+      ]);
+
+      searchRestaurants('restaurant a');
     });
   });
 
