@@ -10,7 +10,7 @@ describe('Showing all favorite restaurants', () => {
 
   const renderTemplate = () => {
     view = new FavoriteRestaurantSearchView();
-    document.body.innerHTML = view.getFavoriteRestaurantTemplate();
+    document.body.innerHTML = view.getTemplate();
   };
 
   beforeEach(() => {
@@ -30,7 +30,7 @@ describe('Showing all favorite restaurants', () => {
     it('should render the information that no restaurants has been liked', (done) => {
       document.getElementById('restaurants')
         .addEventListener('restaurants:updated', () => {
-          expect(document.querySelectorAll('.restaurant-item__not__found').length)
+          expect(document.querySelectorAll('.restaurants-item__not__found').length)
             .toEqual(1);
 
           done();
