@@ -24,6 +24,7 @@
         "import/prefer-default-export": 0,
         "no-return-assign": 0,
         "no-const-assign":0,
-        "eqeqeq": 0
+        "eqeqeq": 0,
+        "no-new": 0
     }
 }
