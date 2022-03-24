@@ -19,16 +19,16 @@ const createListRestaurantTemplate = (restaurant) => `
 const createDetailRestaurantTemplate = (restaurant) => `
 <div class="detail-item">
     <div class="detail-poster">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
     </div>
     <div class="detail-info">
         <div class="restaurant-information">
             <h1>Information</h1>
             <hr style="height:2px;border-width:0;color:black;background-color:black">
-            <div class="card">
-                <h2>${restaurant.name}</h2>
+            <div class="card restaurant">
+                <h2 class="restaurant__name">${restaurant.name || '-'}</h2>
                 <hr>
-                <p>${restaurant.description}</p>
+                <p>${restaurant.description || '-'}</p>
             </div>
             <div class="info-category card">
                 <h3>Category</h3>
@@ -58,7 +58,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <div class="card">
                 <h3>Rating</h3>
                 <hr>
-                <p>${restaurant.rating}</p>
+                <p>${restaurant.rating || '-'}</p>
             </div>
         </div>
         <div class="restaurant-review">

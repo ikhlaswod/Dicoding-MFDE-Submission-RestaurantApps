@@ -39,13 +39,10 @@ describe('Liking a restaurant', () => {
   it('should not add a restaurant when its already liked', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    // Tambahkan film dengan ID 1 ke daftar film yang disukai
     await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
 
-    // Simulasikan pengguna menekan tombol suka film
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
-    // tidak ada film yang ganda
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
 
     FavoriteRestaurantIdb.deleteRestaurant(1);
