@@ -10,7 +10,7 @@ const createListRestaurantTemplate = (restaurant) => `
     </div>
     <div class="list-text">
         <h4>Rating : ${restaurant.rating}</h4>
-        <h2><a href="${`/#/detail/${restaurant.id || '-'}`}">${restaurant.name || '-'}</a></h2>
+        <h2 class="restaurant__name"><a href="${`/#/detail/${restaurant.id || '-'}`}">${restaurant.name || '-'}</a></h2>
         <p>${restaurant.description || '-'}</p>
     </div>
 </div>
