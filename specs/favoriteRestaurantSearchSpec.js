@@ -47,7 +47,7 @@ describe('Searching restaurants', () => {
         .toHaveBeenCalledWith('restaurant a');
     });
 
-    it('should show the found restaurants by Favorite Restaurants', (done) => {
+    fit('should show the found restaurants by Favorite Restaurants', (done) => {
       document.getElementById('restaurants')
         .addEventListener('restaurants:updated', () => {
           expect(document.querySelectorAll('.restaurant').length).toEqual(3);

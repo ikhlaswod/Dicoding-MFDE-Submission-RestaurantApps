@@ -9,8 +9,18 @@ class FavoriteRestaurantSearchView {
             <div id="restaurants" class="restaurants">
 
             </div>
-       </div>
-       `;
+       </div>`;
+    // return `
+    //   <section class="content">
+    //   <div class="restaurant">
+    //     <input id="query" type="text">
+    //       <h1>Your Favorite Restaurant</h1>
+    //       <div id="restaurantList" class="restaurants">
+
+    //       </div>
+    //     </div>
+    //   </section>
+    //    `;
   }
 
   runWhenUserIsSearching(callback) {
