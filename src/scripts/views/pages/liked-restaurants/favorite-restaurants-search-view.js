@@ -23,7 +23,7 @@ class FavoriteRestaurantSearchView {
 
   showFavoriteRestaurants(restaurants = []) {
     let html;
-    if (restaurants.length) {
+    if (restaurants.length > 0) {
       html = restaurants.reduce((carry, restaurant) => carry.concat(createListRestaurantTemplate(restaurant)), '');
     } else {
       html = this._getEmptyRestaurantTemplate();
