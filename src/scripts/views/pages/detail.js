@@ -14,7 +14,7 @@ const Detail = {
   async render() {
     return `
     <section class="content">
-      <div class="restaurant">
+      <div class="restaurant-container">
 
       </div>
       <div id="likeButtonContainer"></div>
@@ -25,7 +25,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parserActiveWithoutCombiner();
     const restaurant = await ApiRestaurantSource.detailRestaurant(url.id);
-    const restaurantContainer = document.querySelector('.restaurant');
+    const restaurantContainer = document.querySelector('.restaurant-container');
     restaurantContainer.innerHTML = createDetailRestaurantTemplate(restaurant.restaurant);
 
     const { foods, drinks } = restaurant.restaurant.menus;
