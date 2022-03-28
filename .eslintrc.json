@@ -25,6 +25,8 @@
         "no-return-assign": 0,
         "no-const-assign":0,
         "eqeqeq": 0,
-        "no-new": 0
+        "no-new": 0,
+        "no-await-in-loop": 0,
+        "no-plusplus": 0
     }
 }
