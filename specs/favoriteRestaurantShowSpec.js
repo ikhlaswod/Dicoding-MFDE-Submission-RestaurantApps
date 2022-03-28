@@ -28,7 +28,7 @@ describe('Showing all favorite restaurants', () => {
       expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
     });
     it('should render the information that no restaurants has been liked', (done) => {
-      document.getElementById('restaurants')
+      document.getElementById('restaurantList')
         .addEventListener('restaurants:updated', () => {
           expect(document.querySelectorAll('.restaurants-item__not__found').length)
             .toEqual(1);
@@ -48,8 +48,8 @@ describe('Showing all favorite restaurants', () => {
 
   describe('When favorite restaurants exist', () => {
     it('should show the restaurants', (done) => {
-      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-        expect(document.querySelectorAll('.detail-item').length).toEqual(2);
+      document.getElementById('restaurantList').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.list-item').length).toEqual(2);
         done();
       });
       const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);

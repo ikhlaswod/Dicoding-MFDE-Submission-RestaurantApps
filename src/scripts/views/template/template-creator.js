@@ -4,14 +4,14 @@ const createListRestaurantTemplate = (restaurant) => `
 <div class="list-item">
     <div class="list-head">
         <figure>
-            <figcaption>${restaurant.city}</figcaption>
-            <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+            <figcaption>${restaurant.city || '-'}</figcaption>
+            <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
         </figure>
     </div>
     <div class="list-text">
         <h4>Rating : ${restaurant.rating}</h4>
-        <h2><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h2>
-        <p>${restaurant.description}</p>
+        <h2 class="restaurant__name"><a href="${`/#/detail/${restaurant.id || '-'}`}">${restaurant.name || '-'}</a></h2>
+        <p>${restaurant.description || '-'}</p>
     </div>
 </div>
 `;

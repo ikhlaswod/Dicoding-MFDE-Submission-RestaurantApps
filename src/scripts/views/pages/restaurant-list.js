@@ -7,7 +7,7 @@ const RestaurantList = {
     <div class="jumbotron">
     </div>
     <section class="content">
-      <div class="restaurant">
+      <div class="restaurant-container">
           <h1 class="title">Explore Restaurant</h1>
           <div id="restaurantList">
     
