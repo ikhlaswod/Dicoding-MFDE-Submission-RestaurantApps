@@ -42,8 +42,6 @@
   },
   "dependencies": {
     "idb": "^7.0.0",
-    "install": "^0.13.0",
-    "npm": "^8.5.3",
     "regenerator-runtime": "^0.13.5",
     "serviceworker-webpack-plugin": "^1.0.1"
   }
