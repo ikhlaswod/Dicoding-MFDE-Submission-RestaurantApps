@@ -5,6 +5,13 @@ const RestaurantList = {
   async render() {
     return `
     <div class="jumbotron">
+      <picture>
+          <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
+          <img 
+              src="./images/hero-image_2-large.jpg" 
+              alt="Alteon Poster"></img>
+      
+      </picture>
     </div>
     <section class="content">
       <div class="restaurant-container">
