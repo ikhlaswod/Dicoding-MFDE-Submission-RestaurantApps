@@ -8,7 +8,9 @@ const RestaurantList = {
       <picture>
           <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
           <img 
-              src="./images/hero-image_2-large.jpg" 
+              class="lazyload" 
+              width="100%" height="100%"
+              data-src="./images/hero-image_2-large.jpg" 
               alt="Alteon Poster"></img>
       
       </picture>
