@@ -5,7 +5,7 @@ const createListRestaurantTemplate = (restaurant) => `
     <div class="list-head">
         <figure>
             <figcaption>${restaurant.city || '-'}</figcaption>
-            <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
+            <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
         </figure>
     </div>
     <div class="list-text">
@@ -19,7 +19,7 @@ const createListRestaurantTemplate = (restaurant) => `
 const createDetailRestaurantTemplate = (restaurant) => `
 <div class="detail-item">
     <div class="detail-poster">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
+        <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
     </div>
     <div class="detail-info">
         <div class="restaurant-information">
