@@ -236,7 +236,12 @@ footer {
         100% { transform: rotate(360deg); }
       }
 }
-
+@media screen and(min-width: 1000px) {
+    main .jumbotron .vp1000 {
+        min-width: 1000px;
+    }
+    
+}
 
 @media screen and(max-width: 1000px) {
     header {

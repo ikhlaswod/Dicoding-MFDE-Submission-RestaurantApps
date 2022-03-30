@@ -26,7 +26,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <h1>Information</h1>
             <hr style="height:2px;border-width:0;color:black;background-color:black">
             <div class="card restaurant">
-                <h2 class="restaurant__name">${restaurant.name || '-'}</h2>
+                <h2 class="restaurant__name">${restaurant.name || '-'} - "${restaurant.city}, ${restaurant.address}"</h2>
                 <hr>
                 <p>${restaurant.description || '-'}</p>
             </div>
